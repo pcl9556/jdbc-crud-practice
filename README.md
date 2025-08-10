@@ -1,6 +1,8 @@
 # jdbc-crud-practice
 
 기획
+1. 종합병원의 데이터 관리 프로그래을 만든다.
+2. 환자,의사,진료,처방,제약코드를 관리한다.
 
 논리
 <img width="851" height="744" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
