@@ -97,3 +97,74 @@ VALUES (05,'김환자','010-1234-5555','고열'),
 (09,'조환자','010-1234-9999','몸살'), 
 (07,'박환자','010-1234-7777','두통');
 
+
+잠시 여기 있어
+package com.projectnull.common;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.*;
+import java.util.Properties;
+
+public class JDBCTemplate {
+
+    private JDBCTemplate() {}
+
+    public static Connection getConnection() {
+        Properties prop = new Properties();
+        try (FileReader reader = new FileReader("src/main/java/com/projectnull/config/connection-info.properties")) {
+            prop.load(reader);
+
+            String driver = prop.getProperty("driver");
+            String url = prop.getProperty("url");
+
+            Class.forName(driver);                  // 예: com.mysql.cj.jdbc.Driver
+            return DriverManager.getConnection(url, prop); // prop 안에 user/password 포함
+        } catch (IOException | ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /* ------- close helpers ------- */
+    public static void close(Connection con) {
+        try {
+            if (con != null && !con.isClosed()) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void close(Statement stmt) {
+        try {
+            if (stmt != null && !stmt.isClosed()) {
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void close(PreparedStatement pstmt) {
+        try {
+            if (pstmt != null && !pstmt.isClosed()) {
+                pstmt.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void close(ResultSet rset) {
+        try {
+            if (rset != null && !rset.isClosed()) {
+                rset.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+}
+
