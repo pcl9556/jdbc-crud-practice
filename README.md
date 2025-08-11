@@ -88,10 +88,10 @@ INSERT INTO patient (patient_code, patient_name, patient_number, symptoms) VALUE
 
 /* clinic: 4건 */
 INSERT INTO clinic (clinic_code, doctor_code, patient_code, prescription_code) VALUES
-(10, 3, 5, 100),   -- 장염 처방 예정
-(20, 2, 7, 200),   -- 감기 처방 예정
-(30, 1, 3, NULL),  -- 처방 없음(현재)
-(40, 4, 9, NULL);  -- 처방 없음(현재)
+(10, 3, 5, 100),   
+(20, 2, 7, 200),   
+(30, 1, 3, NULL),  
+(40, 4, 9, NULL);  
 
 /* prescription: 4건 */
 INSERT INTO prescription (prescription_code, clinic_code, disease_name) VALUES
