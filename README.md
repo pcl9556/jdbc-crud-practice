@@ -42,7 +42,6 @@ public class JDBCTemplate {
         }
     }
 
-    /* ------- close helpers ------- */
     public static void close(Connection con) {
         try {
             if (con != null && !con.isClosed()) {
