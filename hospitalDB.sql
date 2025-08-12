@@ -25,7 +25,7 @@ CREATE TABLE patient
  CREATE TABLE clinic
  ( clinic_code INT NOT NULL COMMENT '진료코드',
  doctor_code INT NOT NULL COMMENT '의사코드',
- patient_code INT NOT NULL COMMENT '환자코드'
+ patient_code INT NOT NULL COMMENT '환자코드',
  prescription_code INT NULL COMMENT '처방코드(있을 수도 없음)',
  PRIMARY KEY (clinic_code),
  FOREIGN KEY (doctor_code) REFERENCES doctor(doctor_code),
@@ -89,3 +89,4 @@ INSERT INTO doctor
  (9002, 200, '페니실린', '식후 30분 복용'), 
  (9003, 300, '후시딘', '하루 3회 도포'),
  (9004, 400, '리파아제', '식후 30분 복용');
+
