@@ -1,8 +1,14 @@
-# jdbc-crud-practice
+Back-end Practice
+JDBC와 DAO 패턴을 활용하여 CRUD 기능을 구현하는 연습을 목표로 한다.
+데이터 모델링을 통해 테이블 간 관계를 정의하고,
+이를 기반으로 SQL 쿼리를 작성하여 데이터베이스를 연동한다.
 
-기획
-1. 종합병원의 데이터 관리 프로그래을 만든다.
-2. 환자,의사,진료,처방,제약코드를 관리한다.
+✅ 2. 사용 기술
+Java
+MySQL
+JDBC
+DAO 
+
 
 논리
 <img width="851" height="744" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
