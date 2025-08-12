@@ -1,13 +1,12 @@
-<h1>jdbc-crud-practice
-</h1> 
+<h1>jdbc-crud-practice</h1> 
 
 
-<h3>논리</h3>
+<h2>논리</h2>
 <img width="851" height="744" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
 
 
 
-물리
+<h2>물리</h2>
 <img width="1094" height="715" alt="병원 - 물리" src="https://github.com/user-attachments/assets/6cec64a0-6eb1-4854-85a2-6cd6102d441f" />
 
 
