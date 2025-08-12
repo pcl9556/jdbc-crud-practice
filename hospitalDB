@@ -1,0 +1,73 @@
+﻿DROP TABLE `clinic`;
+
+CREATE TABLE `clinic`
+(
+    `clinic_code`    INTEGER(3) NOT NULL COMMENT '진료코드',
+    `doctor_code`    INTEGER(3) NOT NULL COMMENT '의사코드',
+    `patient_code`    INTEGER(3) NOT NULL COMMENT '환자코드',
+    `prescription_code`    VARCHAR(3) COMMENT '처방코드',
+ PRIMARY KEY ( `clinic_code` )
+) COMMENT = '진료';
+
+ALTER TABLE `clinic`
+ ADD CONSTRAINT `clinic_PK` PRIMARY KEY ( `clinic_code` );
+
+
+DROP TABLE `doctor`;
+
+CREATE TABLE `doctor`
+(
+    `clinic_day`    VARCHAR(20) NOT NULL COMMENT '진료날짜',
+    `doctor_code`    INTEGER(3) NOT NULL COMMENT '의사코드',
+    `doctor_name`    VARCHAR(10) NOT NULL COMMENT '의사이름',
+    `specialty`    VARCHAR(10) NOT NULL COMMENT '전공과목',
+    `clinic_hours`    VARCHAR(10) NOT NULL COMMENT '진료시간',
+ PRIMARY KEY ( `doctor_code` )
+) COMMENT = '의사';
+
+ALTER TABLE `doctor`
+ ADD CONSTRAINT `doctor_PK` PRIMARY KEY ( `doctor_code` );
+
+
+DROP TABLE `patient`;
+
+CREATE TABLE `patient`
+(
+    `patient_code`    VARCHAR(3) NOT NULL COMMENT '환자코드',
+    `patient_name`    VARCHAR(10) NOT NULL COMMENT '환자이름',
+    `patient_number`    VARCHAR(15) NOT NULL COMMENT '환자전화번호',
+    `symptoms`    VARCHAR(20) NOT NULL COMMENT '내원증상',
+ PRIMARY KEY ( `patient_code` )
+) COMMENT = '환자';
+
+ALTER TABLE `patient`
+ ADD CONSTRAINT `patient_PK` PRIMARY KEY ( `patient_code` );
+
+
+DROP TABLE `pharmaceutical`;
+
+CREATE TABLE `pharmaceutical`
+(
+    `pharmaceutical_code`    INTEGER(3) NOT NULL COMMENT '제약코드',
+    `prescription_code`    VARCHAR(3) NOT NULL COMMENT '처방코드',
+    `drug_name`    VARCHAR(20) NOT NULL COMMENT '약품명',
+    `dosage`    VARCHAR(20) NOT NULL COMMENT '복용',
+ PRIMARY KEY ( `pharmaceutical_code` )
+) COMMENT = '제약';
+
+ALTER TABLE `pharmaceutical`
+ ADD CONSTRAINT `pharmaceutical_PK` PRIMARY KEY ( `pharmaceutical_code` );
+
+
+DROP TABLE `prescription`;
+
+CREATE TABLE `prescription`
+(
+    `prescription_code`    VARCHAR(3) NOT NULL COMMENT '처방코드',
+    `clinic_code`    INTEGER(3) NOT NULL COMMENT '진료코드',
+    `disease_name`    VARCHAR(20) NOT NULL COMMENT '병명',
+ PRIMARY KEY ( `prescription_code` )
+) COMMENT = '처방전';
+
+ALTER TABLE `prescription`
+ ADD CONSTRAINT `prescription_PK` PRIMARY KEY ( `prescription_code` );
