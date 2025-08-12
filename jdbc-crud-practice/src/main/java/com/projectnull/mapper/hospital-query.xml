@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!-- C -->
+    <entry key="insertClinic">
+        INSERT INTO clinic (clinic_code, doctor_code, patient_code, prescription_code)
+        VALUES (?, ?, ?, ?)
+    </entry>
+
+    <!-- U -->
+    <entry key="updateClinic">
+        UPDATE clinic
+        SET doctor_code = ?,
+        patient_code = ?,
+        prescription_code = ?
+        WHERE clinic_code = ?
+    </entry>
+
+    <!-- D -->
+
+    <!--    <entry key="deleteClinic">-->
+    <!--        DELETE FROM hospital_db.`진료`-->
+    <!--        WHERE clinic_code = ?-->
+    <!--    </entry>-->
+
+    <entry key="deleteClinic">
+        DELETE FROM clinic
+        WHERE clinic_code = ?
+    </entry>
+
+    <!-- R: 전체 -->
+    <entry key="selectAllClinics">
+        SELECT clinic_code, doctor_code, patient_code, prescription_code
+        FROM clinic
+        ORDER BY clinic_code
+    </entry>
+
+    <!-- R: 전체(상세, 조인 포함 / 처방 없으면 NULL) -->
+    <entry key="selectAllClinicsDetail">
+        SELECT
+        c.clinic_code,
+        c.doctor_code,
+        d.doctor_name,
+        d.specialty,
+        d.clinicday AS clinic_day,
+        d.clinic_hours AS clinic_hours,
+        c.patient_code,
+        p.patient_name,
+        p.patient_number,
+        p.symptoms,
+        c.prescription_code,
+        pr.disease_name AS disease_name,
+        ph.pharmaceutical_code,
+        ph.drug_name AS drug_name,
+        ph.dosage
+        FROM clinic c
+        JOIN doctor d  ON c.doctor_code = d.doctor_code
+        JOIN patient p ON c.patient_code = p.patient_code
+        LEFT JOIN prescription  pr ON pr.clinic_code = c.clinic_code
+        LEFT JOIN pharmaceutical ph ON ph.prescription_code = pr.prescription_code
+        ORDER BY c.clinic_code
+    </entry>
+
+    <!-- R: 단건(상세, 조인 포함) -->
+    <entry key="selectClinicDetailByCode">
+        SELECT
+        c.clinic_code,
+        c.doctor_code,
+        d.doctor_name,
+        d.specialty,
+        d.clinicday AS clinic_day,
+        d.clinic_hours AS clinic_hours,
+        c.patient_code,
+        p.patient_name,
+        p.patient_number,
+        p.symptoms,
+        c.prescription_code,
+        pr.disease_name AS disease_name,
+        ph.pharmaceutical_code,
+        ph.drug_name AS drug_name,
+        ph.dosage
+        FROM clinic c
+        JOIN doctor d  ON c.doctor_code = d.doctor_code
+        JOIN patient p ON c.patient_code = p.patient_code
+        LEFT JOIN prescription  pr ON pr.clinic_code = c.clinic_code
+        LEFT JOIN pharmaceutical ph ON ph.prescription_code = pr.prescription_code
+        WHERE c.clinic_code = ?
+    </entry>
+
+    <!-- D -->
+    <entry key="deleteClinicAllInOne">
+        DELETE ph, pr, c
+        FROM clinic c
+        LEFT JOIN prescription  pr ON pr.clinic_code = c.clinic_code
+        LEFT JOIN pharmaceutical ph ON ph.prescription_code = pr.prescription_code
+        WHERE c.clinic_code = ?
+    </entry>
+
+</properties>
+
+
+
