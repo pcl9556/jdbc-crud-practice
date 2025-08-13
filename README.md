@@ -11,9 +11,9 @@
 </h3>
 
 <h1>사용기술</h1>
-1.Java
-2.MySQL
-3.JDBC
+1.Java <br>
+2.MySQL <br>
+3.JDBC <br>
 4.DAO 
 
 <h2>논리 모델링</h2>
