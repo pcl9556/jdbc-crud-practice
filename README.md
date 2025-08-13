@@ -17,12 +17,16 @@
 - DAO 
 
 <h2>논리 모델링</h2>
-<img width="850" height="700" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
+
+<img width="800" height="700" alt="병원_논리 모델링" src="https://github.com/user-attachments/assets/79bdf8b9-8e7e-48ec-8916-e06674f0401e" />
+
 
 
 
 <h2>물리 모델링</h2>
-<img width="850" height="700" alt="병원 - 물리" src="https://github.com/user-attachments/assets/6cec64a0-6eb1-4854-85a2-6cd6102d441f" />
+
+<img width="800" height="700" alt="병원_물리 모델링" src="https://github.com/user-attachments/assets/63b7545d-ef90-4ce2-8a83-9a59c3c6cee3" />
+
 
 
 
