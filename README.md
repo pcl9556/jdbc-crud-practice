@@ -1,83 +1,29 @@
 <h1>jdbc-crud-practice</h1> 
 
+<h1>기획 내용</h1>
+<h2>병원 데이터관리 프로그램</h2>
+<h3>병원의 환자, 의사, 진료, 처방,제약 데이터를 CRUD할 수있다.
+- 주요기능
+    1. 진료 등록 / 수정 / 삭제
+    2. 상세 조회
+    3. 연관 데이터 자동 삭제
+</h3>
 
-<h2>논리</h2>
-<img width="851" height="744" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
+<h1>사용기술</h1>
+1.Java
+2.MySQL
+3.JDBC
+4.DAO 
+
+<h2>논리 모델링</h2>
+<img width="850" height="710" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
 
 
 
-<h2>물리</h2>
-<img width="1094" height="715" alt="병원 - 물리" src="https://github.com/user-attachments/assets/6cec64a0-6eb1-4854-85a2-6cd6102d441f" />
+<h2>물리 모델링</h2>
+<img width="850" height="710" alt="병원 - 물리" src="https://github.com/user-attachments/assets/6cec64a0-6eb1-4854-85a2-6cd6102d441f" />
 
 
 
 
-잠시 여기 있어
-package com.projectnull.common;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.*;
-import java.util.Properties;
-
-public class JDBCTemplate {
-
-    private JDBCTemplate() {}
-
-    public static Connection getConnection() {
-        Properties prop = new Properties();
-        try (FileReader reader = new FileReader("src/main/java/com/projectnull/config/connection-info.properties")) {
-            prop.load(reader);
-
-            String driver = prop.getProperty("driver");
-            String url = prop.getProperty("url");
-
-            Class.forName(driver);                  // 예: com.mysql.cj.jdbc.Driver
-            return DriverManager.getConnection(url, prop); // prop 안에 user/password 포함
-        } catch (IOException | ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(Connection con) {
-        try {
-            if (con != null && !con.isClosed()) {
-                con.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(Statement stmt) {
-        try {
-            if (stmt != null && !stmt.isClosed()) {
-                stmt.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(PreparedStatement pstmt) {
-        try {
-            if (pstmt != null && !pstmt.isClosed()) {
-                pstmt.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(ResultSet rset) {
-        try {
-            if (rset != null && !rset.isClosed()) {
-                rset.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-}
 
