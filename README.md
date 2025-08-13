@@ -18,8 +18,7 @@
 
 <h2>논리 모델링</h2>
 
-<img width="800" height="700" alt="병원_논리 모델링" src="https://github.com/user-attachments/assets/79bdf8b9-8e7e-48ec-8916-e06674f0401e" />
-
+<img width="800" height="700" alt="병원_논리 모델링" src="https://github.com/user-attachments/assets/a3c95970-6140-4958-8f10-67c93d2051c7" />
 
 
 
