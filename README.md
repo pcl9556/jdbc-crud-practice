@@ -11,10 +11,10 @@
 </h3>
 
 <h1> ✅ 사용기술 </h1>
-1.Java <br>
-2.MySQL <br>
-3.JDBC <br>
-4.DAO 
+- Java <br>
+- MySQL <br>
+- JDBC <br>
+- DAO 
 
 <h2>논리 모델링</h2>
 <img width="850" height="700" alt="병원 - 논리" src="https://github.com/user-attachments/assets/cdf747fc-df27-4567-a1cf-8e4285e82c23" />
